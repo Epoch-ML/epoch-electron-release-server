@@ -39,8 +39,8 @@
 #
 ################################################
 
-config/local.js
-database.json
+#config/local.js
+#database.json
 
 
 
