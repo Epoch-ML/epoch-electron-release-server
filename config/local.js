@@ -32,13 +32,13 @@ module.exports = {
   // The full base url at which your site will be primarily available.
   // Include an http:// prefix
   // ex. 'http://my-site.com'
-  appUrl: 'SITE_URL',
+  appUrl: 'https://epoch-electron-release-server.onrender.com',
 
   auth: {
     // Provide a set of credentials that can be used to access the admin interface.
     static: {
-      username: 'STATIC_USERNAME',
-      password: 'STATIC_PASSWORD'
+      username: process.env.STATIC_USERNAME,
+      password: process.env.STATIC_PASSWORD
     },
     // You can also specify an ldap connection that can be used for authentication.
     //ldap: {
@@ -56,7 +56,7 @@ module.exports = {
   jwt: {
     // Recommended: 63 random alpha-numeric characters for secret
     // Generate using: https://www.grc.com/passwords.htm
-    token_secret: 'INSERT_RANDOM_TOKEN_KEY'
+    token_secret: process.env.TOKEN_SECRET
   },
 
   models: {
@@ -86,27 +86,27 @@ module.exports = {
   datastores: {
     postgresql: {
       adapter: 'sails-postgresql',
-      host: 'DATABASE_HOST',
-      user: 'DATABASE_USERNAME',
-      password: 'DATABASE_PASSWORD',
-      database: 'MAIN_DATABASE_NAME'
+      host: process.env.DATABASE_HOST,
+      user: process.env.DATABASE_USERNAME,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.MAIN_DATABASE_NAME
     }
   },
 
   session: {
     // Recommended: 63 random alpha-numeric characters for secret
     // Generate using: https://www.grc.com/passwords.htm
-    secret: 'SESSION_SECRET',
-    database: 'SESSION_DATABASE_NAME',
-    host: 'DATABASE_HOST',
-    user: 'DATABASE_USERNAME',
-    password: 'DATABASE_PASSWORD',
+    secret: process.env.SESSION_SECRET,
+    database: process.env.SESSION_DATABASE_NAME,
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD,
     port: 5432
   },
 
   files: {
     // Folder must exist and user running the server must have adequate perms
-    dirname: 'PATH_FOR_ASSETS',
+    dirname: process.env.PATH_FOR_ASSETS,
     // Maximum allowed file size in bytes
     // Defaults to 500MB
     // maxBytes: 524288000
